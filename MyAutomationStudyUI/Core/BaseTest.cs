@@ -19,6 +19,12 @@ namespace MyAutomationStudyUI.Core
             Directory.CreateDirectory(downloadPath);
 
             var options = new ChromeOptions();
+
+            options.AddArgument("--headless=new");
+            options.AddArgument("--no-sandbox");
+            options.AddArgument("--disable-dev-shm-usage");
+            options.AddArgument("--window-size=1920,1080");
+
             options.AddUserProfilePreference("download.default_directory", downloadPath);
             options.AddUserProfilePreference("download.prompt_for_download", false);
             options.AddUserProfilePreference("download.directory_upgrade", true);
