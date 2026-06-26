@@ -1,7 +1,7 @@
 ﻿
 
 
-
+using System;
 using System.Threading.Tasks;
 using RestSharp;
 
@@ -25,14 +25,32 @@ namespace MyAutomationStudyUI.Core.Api
             return request;
         }
 
-        protected Task<RestResponse> ExecuteAsync(RestRequest request)
+        protected async Task<RestResponse> ExecuteAsync(RestRequest request)
         {
-            return client.ExecuteAsync(request);
+            var response = await client.ExecuteAsync(request);
+
+            if (response.ResponseStatus == ResponseStatus.Error)
+            {
+                throw new InvalidOperationException(
+                    $"API request failed. Method: {request.Method}, Resource: {request.Resource}. Error: {response.ErrorMessage}",
+                    response.ErrorException);
+            }
+
+            return response;
         }
 
-        protected Task<RestResponse<T>> ExecuteAsync<T>(RestRequest request)
+        protected async Task<RestResponse<T>> ExecuteAsync<T>(RestRequest request)
         {
-            return client.ExecuteAsync<T>(request);
+            var response = await client.ExecuteAsync<T>(request);
+
+            if (response.ResponseStatus == ResponseStatus.Error)
+            {
+                throw new InvalidOperationException(
+                    $"API request failed. Method: {request.Method}, Resource: {request.Resource}. Error: {response.ErrorMessage}",
+                    response.ErrorException);
+            }
+
+            return response;
         }
     }
 }
