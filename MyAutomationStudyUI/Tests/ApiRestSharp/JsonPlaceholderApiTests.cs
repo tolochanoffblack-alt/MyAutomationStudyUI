@@ -44,6 +44,27 @@ namespace MyAutomationStudyUI.Tests.ApiRestSharp
             Assert.That(response.Data.Username, Is.EqualTo(request.Username));
             
         }
+
+        [Test]
+        [Category("API")]
+        public async Task GetUserById_WhenValidIdIsProvided_ReturnsUser()
+        {
+            // Arrange
+            var client = new JsonPlaceholderClient();
+            var userId = JsonPlaceholderTestData.ExistingUserId;
+
+            // Act
+            var response = await client.GetUserByIdAsync(userId);
+
+            // Assert
+            Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.OK));
+            Assert.That(response.Data, Is.Not.Null);
+
+            Assert.That(response.Data!.Id, Is.EqualTo(userId));
+            Assert.That(response.Data.Name, Is.EqualTo(JsonPlaceholderTestData.ExistingUserName));
+            Assert.That(response.Data.Username, Is.EqualTo(JsonPlaceholderTestData.ExistingUsername));
+            Assert.That(response.Data.Email, Is.EqualTo(JsonPlaceholderTestData.ExistingUserEmail));
+        }
     }
 }
 
