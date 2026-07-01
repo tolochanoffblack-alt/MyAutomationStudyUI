@@ -33,5 +33,11 @@ namespace MyAutomationStudyUI.ApiRestSharp.JsonPlaceholder.Clients
 
             return ExecuteAsync<CreateUserResponse>(request);
         }
+
+        public Task<RestResponse> DeleteUserAsync(int userId)
+        {
+            var request = CreateRequest($"{ApiEndpoints.Users}/{userId}", Method.Delete);
+            return ExecuteAsync(request);
+        }
     }
 }

@@ -65,6 +65,21 @@ namespace MyAutomationStudyUI.Tests.ApiRestSharp
             Assert.That(response.Data.Username, Is.EqualTo(JsonPlaceholderTestData.ExistingUsername));
             Assert.That(response.Data.Email, Is.EqualTo(JsonPlaceholderTestData.ExistingUserEmail));
         }
+
+        [Test]
+        [Category("API")]
+        public async Task DeleteUser_WhenValidUserIdIsSent_ReturnsSuccessfulStatusCode()
+        {
+            // Arrange
+            var client = new JsonPlaceholderClient();
+            var userId = JsonPlaceholderTestData.ExistingUserId;
+
+            // Act
+            var response = await client.DeleteUserAsync(userId);
+
+            // Assert
+            Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.OK));
+        }
     }
 }
 
