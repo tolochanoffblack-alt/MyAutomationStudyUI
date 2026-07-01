@@ -1,37 +1,35 @@
-﻿# DAS AI Test Cases
+﻿# Test Case 001
 
-The purpose of this document is to validate DAS AI against real engineering tasks.
+## Title
 
-Each test verifies whether the agent follows the specification.
+Delete User API
 
----
+## Requirement
 
-# Test Case 001
+```gherkin
+...
+```
 
-Title
+## Expected Behavior
 
-Add GET endpoint
+- Analyze the repository.
+- Reuse existing architecture.
+- Extend JsonPlaceholderClient.
+- Reuse existing TestData.
+- Produce Impact Analysis.
+- Produce Implementation Plan.
+- Wait for approval before generating code.
 
-Requirement
+## Result
 
-Add GET /posts/{id} endpoint using the existing automation framework.
+✅ Passed
 
-Expected behavior
+## Score
 
-The agent should:
+9/10
 
-- analyze the project;
-- reuse existing architecture;
-- reuse BaseApiClient;
-- update existing Client;
-- create models only if needed;
-- reuse TestData;
-- create one API test;
-- avoid duplicate code;
-- produce Impact Analysis;
-- produce Implementation Plan;
-- generate production-ready code.
+## Notes
 
-Result
-
-Pending
+- Reused ExistingUserId.
+- Did not create duplicate classes.
+- Suggested improvement: validate both IsSuccessful and StatusCode.

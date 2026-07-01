@@ -8,6 +8,7 @@ Before performing any task, the agent MUST complete the following steps.
 
 1. Read `Docs/DAS-AI/ProjectKnowledge.md`.
 2. Read `Docs/DAS-AI/DAS-AI.md`.
+1. Read `Docs/DAS-AI/Agent-Experience.md`.
 3. Inspect the current project.
 4. Understand the user requirement.
 5. Follow all MUST rules defined in DAS-AI.md.
