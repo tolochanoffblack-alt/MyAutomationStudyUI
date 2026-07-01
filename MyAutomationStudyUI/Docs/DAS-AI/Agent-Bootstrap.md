@@ -28,3 +28,14 @@ The agent MUST NOT duplicate, replace or ignore existing project architecture.
 All implementation behavior is defined in `DAS-AI.md`.
 
 All project-specific knowledge is defined in `ProjectKnowledge.md`.
+
+## Version Check
+
+Before starting work, verify that the latest version of the following documents has been loaded:
+
+- Agent-Bootstrap.md
+- ProjectKnowledge.md
+- DAS-AI.md
+- Agent-Experience.md
+
+If any of these documents have changed during the current conversation, re-read them before continuing.
