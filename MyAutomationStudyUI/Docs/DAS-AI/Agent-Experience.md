@@ -4,14 +4,28 @@ Version: 1.0
 
 ---
 
-## EXP-001 — RestSharp Successful Response Validation
+## EXP-001
 
-When validating successful RestSharp API responses, prefer checking both:
+Context
+
+New or modified RestSharp API tests.
+
+Rule
+
+When validating successful RestSharp responses, prefer validating both:
 
 - response.IsSuccessful
 - expected HTTP status code
 
-Example:
+Scope
 
-Assert.That(response.IsSuccessful, Is.True);
-Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.OK));
+Apply this rule only to:
+
+- newly created tests;
+- tests modified as part of the current task.
+
+Do not refactor unrelated tests unless explicitly requested.
+
+Reason
+
+Keeps changes focused on the requested feature while improving test quality.

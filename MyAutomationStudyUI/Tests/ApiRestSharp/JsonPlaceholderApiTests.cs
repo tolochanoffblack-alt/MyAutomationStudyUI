@@ -42,7 +42,7 @@ namespace MyAutomationStudyUI.Tests.ApiRestSharp
             Assert.That(response.Data.Id, Is.GreaterThan(0));
             Assert.That(response.Data.Name, Is.EqualTo(request.Name));
             Assert.That(response.Data.Username, Is.EqualTo(request.Username));
-            
+
         }
 
         [Test]
@@ -78,6 +78,7 @@ namespace MyAutomationStudyUI.Tests.ApiRestSharp
             var response = await client.DeleteUserAsync(userId);
 
             // Assert
+            Assert.That(response.IsSuccessful, Is.True);
             Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.OK));
         }
     }
