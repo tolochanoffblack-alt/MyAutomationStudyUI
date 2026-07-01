@@ -11,5 +11,8 @@
 
         public const string ValidUserName = "John Doe";
         public const string ValidUsername = "johndoe";
+
+        public const string UpdatedUserName = "Jane Smith";
+        public const string UpdatedUsername = "janesmith";
     }
 }

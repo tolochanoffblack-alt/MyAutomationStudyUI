@@ -81,6 +81,30 @@ namespace MyAutomationStudyUI.Tests.ApiRestSharp
             Assert.That(response.IsSuccessful, Is.True);
             Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.OK));
         }
+
+        [Test]
+        [Category("API")]
+        public async Task UpdateUser_WhenValidUserIdAndDataAreSent_ReturnsSuccessfulStatusCodeAndUpdatedUser()
+        {
+            // Arrange
+            var builder = new CreateUserRequestBuilder()
+                .WithName(JsonPlaceholderTestData.UpdatedUserName)
+                .WithUsername(JsonPlaceholderTestData.UpdatedUsername);
+
+            var request = builder.Build();
+            var userId = JsonPlaceholderTestData.ExistingUserId;
+            var client = new JsonPlaceholderClient();
+
+            // Act
+            var response = await client.UpdateUserAsync(userId, request);
+
+            // Assert
+            Assert.That(response.IsSuccessful, Is.True);
+            Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.OK));
+            Assert.That(response.Data, Is.Not.Null);
+            Assert.That(response.Data!.Name, Is.EqualTo(request.Name));
+            Assert.That(response.Data.Username, Is.EqualTo(request.Username));
+        }
     }
 }
 

@@ -39,5 +39,13 @@ namespace MyAutomationStudyUI.ApiRestSharp.JsonPlaceholder.Clients
             var request = CreateRequest($"{ApiEndpoints.Users}/{userId}", Method.Delete);
             return ExecuteAsync(request);
         }
+
+        public Task<RestResponse<User>> UpdateUserAsync(int userId, CreateUserRequest userRequest)
+        {
+            var request = CreateRequest($"{ApiEndpoints.Users}/{userId}", Method.Put);
+            request.AddJsonBody(userRequest);
+
+            return ExecuteAsync<User>(request);
+        }
     }
 }
