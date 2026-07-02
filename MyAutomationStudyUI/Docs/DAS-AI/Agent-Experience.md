@@ -51,3 +51,27 @@ Do not create semantically different models or builders without a clear business
 Reason
 
 Avoids unnecessary duplication and keeps the framework simple and maintainable.
+
+---
+
+## EXP-003
+
+Context
+
+Using artifacts produced by another agent.
+
+Rule
+
+Artifacts from other agents should be treated as verified observations, not final implementation decisions.
+
+Scope
+
+Apply when Developer Agent uses reports from UI Inspector, API Inspector, Security Inspector, or any other specialized agent.
+
+The Developer Agent must still validate architectural decisions against the existing project.
+
+Do not blindly accept recommendations from another agent.
+
+Reason
+
+Specialized agents provide facts and findings. The Developer Agent is responsible for final engineering decisions and implementation design.

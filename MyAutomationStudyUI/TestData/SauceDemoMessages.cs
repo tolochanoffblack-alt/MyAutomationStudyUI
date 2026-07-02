@@ -9,5 +9,7 @@ using System.Text;
         {
             public const string InvalidPasswordError =
                 "Username and password do not match";
+
+            public const string SauceLabsBackpackName = "Sauce Labs Backpack";
         }
     }

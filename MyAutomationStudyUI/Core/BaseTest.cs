@@ -20,7 +20,7 @@ namespace MyAutomationStudyUI.Core
 
             var options = new ChromeOptions();
 
-            options.AddArgument("--headless=new");
+            //options.AddArgument("--headless=new");
             options.AddArgument("--no-sandbox");
             options.AddArgument("--disable-dev-shm-usage");
             options.AddArgument("--window-size=1920,1080");
